@@ -21,6 +21,7 @@ public class PlayerCollisions implements CollisionMap {
         mover.collide(collidedOn, this);
     }
 
+   
     public void playerColliding(Player player, Unit collidedOn) {
         if (collidedOn instanceof Ghost) {
             playerVersusGhost(player, (Ghost) collidedOn);
@@ -30,22 +31,13 @@ public class PlayerCollisions implements CollisionMap {
         }
     }
 
-    private void playerColliding(Player player, Unit collidedOn) {
-        if (collidedOn instanceof Ghost) {
-            playerVersusGhost(player, (Ghost) collidedOn);
-        }
-        if (collidedOn instanceof Pellet) {
-            playerVersusPellet(player, (Pellet) collidedOn);
-        }
-    }
-
-    private void ghostColliding(Ghost ghost, Unit collidedOn) {
+    public void ghostColliding(Ghost ghost, Unit collidedOn) {
         if (collidedOn instanceof Player) {
             playerVersusGhost((Player) collidedOn, ghost);
         }
     }
 
-    private void pelletColliding(Pellet pellet, Unit collidedOn) {
+    public void pelletColliding(Pellet pellet, Unit collidedOn) {
         if (collidedOn instanceof Player) {
             playerVersusPellet((Player) collidedOn, pellet);
         }
