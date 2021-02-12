@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.board;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -126,5 +127,20 @@ public abstract class Square {
      * @return The sprite of this square.
      */
     public abstract Sprite getSprite();
+    
+    /**
+	 * Renders a single square on the given graphics context on the specified rectangle.
+	 * @param graphics The graphics context to draw on.
+	 * @param x The x position to start drawing.
+	 * @param y The y position to start drawing.
+	 * @param width The width of this square (in pixels.)
+	 * @param height The height of this square (in pixels.)
+	 */
+	public void render(Graphics graphics, int x, int y, int width, int height) {
+		getSprite().draw(graphics, x, y, width, height);
+		for (Unit unit : getOccupants()) {
+			unit.getSprite().draw(graphics, x, y, width, height);
+		}
+	}
 
 }
