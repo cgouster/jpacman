@@ -17,7 +17,7 @@ import nl.tudelft.jpacman.game.Game;
  * @author Jeroen Roosen 
  *
  */
-class BoardPanel extends JPanel {
+public class BoardPanel extends JPanel {
 
     /**
      * Default serialisation ID.
@@ -27,7 +27,7 @@ class BoardPanel extends JPanel {
     /**
      * The background colour of the board.
      */
-    private static final Color BACKGROUND_COLOR = Color.BLACK;
+    public static final Color BACKGROUND_COLOR = Color.BLACK;
 
     /**
      * The size (in pixels) of a square on the board. The initial size of this
@@ -64,37 +64,11 @@ class BoardPanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         assert g != null;
-        render(game.getLevel().getBoard(), g, getSize());
+       game.getLevel().getBoard().render(g, getSize(), this);
     }
 
     /**
-     * Renders the board on the given graphics context to the given dimensions.
-     *
-     * @param board
-     *            The board to render.
-     * @param graphics
-     *            The graphics context to draw on.
-     * @param window
-     *            The dimensions to scale the rendered board to.
-     */
-    private void render(Board board, Graphics graphics, Dimension window) {
-        int cellW = window.width / board.getWidth();
-        int cellH = window.height / board.getHeight();
-
-        graphics.setColor(BACKGROUND_COLOR);
-        graphics.fillRect(0, 0, window.width, window.height);
-
-        for (int y = 0; y < board.getHeight(); y++) {
-            for (int x = 0; x < board.getWidth(); x++) {
-                int cellX = x * cellW;
-                int cellY = y * cellH;
-                Square square = board.squareAt(x, y);
-                render(square, graphics, cellX, cellY, cellW, cellH);
-            }
-        }
-    }
-
-    /**
+     
      * Renders a single square on the given graphics context on the specified
      * rectangle.
      *
@@ -111,7 +85,7 @@ class BoardPanel extends JPanel {
      * @param height
      *            The height of this square (in pixels.)
      */
-    private void render(Square square, Graphics graphics, int x, int y, int width, int height) {
+    public void render(Square square, Graphics graphics, int x, int y, int width, int height) {
         square.getSprite().draw(graphics, x, y, width, height);
         for (Unit unit : square.getOccupants()) {
             unit.getSprite().draw(graphics, x, y, width, height);
