@@ -1,5 +1,5 @@
 package nl.tudelft.jpacman.board;
-
+import nl.tudelft.jpacman.level.PlayerCollisions;
 import nl.tudelft.jpacman.sprite.Sprite;
 
 /**
@@ -126,4 +126,5 @@ public abstract class Unit {
 
         return destination;
     }
+    public abstract void collide(Unit collidedOn, PlayerCollisions playerCollisions);
 }
