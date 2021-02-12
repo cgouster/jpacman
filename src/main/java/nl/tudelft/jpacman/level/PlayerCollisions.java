@@ -18,14 +18,15 @@ public class PlayerCollisions implements CollisionMap {
 
     @Override
     public void collide(Unit mover, Unit collidedOn) {
-        if (mover instanceof Player) {
-            playerColliding((Player) mover, collidedOn);
+        mover.collide(collidedOn, this);
+    }
+
+    public void playerColliding(Player player, Unit collidedOn) {
+        if (collidedOn instanceof Ghost) {
+            playerVersusGhost(player, (Ghost) collidedOn);
         }
-        else if (mover instanceof Ghost) {
-            ghostColliding((Ghost) mover, collidedOn);
-        }
-        else if (mover instanceof Pellet) {
-            pelletColliding((Pellet) mover, collidedOn);
+        if (collidedOn instanceof Pellet) {
+            playerVersusPellet(player, (Pellet) collidedOn);
         }
     }
 
