@@ -27,7 +27,7 @@ public class PlayerCollisions implements CollisionMap {
             playerVersusGhost(player, (Ghost) collidedOn);
         }
         if (collidedOn instanceof Pellet) {
-            playerVersusPellet(player, (Pellet) collidedOn);
+            ((Pellet) collidedOn).playerVersusPellet(player);
         }
     }
 
@@ -39,7 +39,7 @@ public class PlayerCollisions implements CollisionMap {
 
     public void pelletColliding(Pellet pellet, Unit collidedOn) {
         if (collidedOn instanceof Player) {
-            playerVersusPellet((Player) collidedOn, pellet);
+            pellet.playerVersusPellet((Player) collidedOn);
         }
     }
 
@@ -54,15 +54,6 @@ public class PlayerCollisions implements CollisionMap {
         player.setAlive(false);
     }
 
-    /**
-     * Actual case of player consuming a pellet.
-     *
-     * @param player The player involved in the collision.
-     * @param pellet The pellet involved in the collision.
-     */
-    public void playerVersusPellet(Player player, Pellet pellet) {
-        pellet.leaveSquare();
-        player.addPoints(pellet.getValue());
-    }
+   
 
 }
