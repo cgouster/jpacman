@@ -1,4 +1,6 @@
 package nl.tudelft.jpacman.board;
+import nl.tudelft.jpacman.level.PlayerCollisions;
+
 
 import nl.tudelft.jpacman.sprite.Sprite;
 
@@ -21,4 +23,8 @@ class BasicUnit extends Unit {
     public Sprite getSprite() {
         return null;
     }
+    
+	public void collide(Unit collidedOn, PlayerCollisions playerCollisions) {
+	}
+
 }
