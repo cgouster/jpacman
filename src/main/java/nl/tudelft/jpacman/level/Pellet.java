@@ -45,4 +45,14 @@ public class Pellet extends Unit {
     public void collide(Unit collidedOn, PlayerCollisions playerCollisions) {
 		playerCollisions.pelletColliding(this, collidedOn);
 	}
+    
+	/**
+	 * Actual case of player consuming a pellet.
+	 * @param player  The player involved in the collision.
+	 */
+	public void playerVersusPellet(Player player) {
+		leaveSquare();
+		player.addPoints(getValue());
+	}
+
 }
