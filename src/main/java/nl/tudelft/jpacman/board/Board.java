@@ -1,5 +1,9 @@
 package nl.tudelft.jpacman.board;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import nl.tudelft.jpacman.ui.BoardPanel;
+
 
 /**
  * A top-down view of a matrix of {@link Square}s.
@@ -91,4 +95,24 @@ public class Board {
     public boolean withinBorders(int x, int y) {
         return x >= 0 && x < getWidth() && y >= 0 && y < getHeight();
     }
+    /**
+	 * Renders the board on the given graphics context to the given dimensions.
+	 * @param graphics The graphics context to draw on.
+	 * @param window The dimensions to scale the rendered board to.
+	 * @param boardPanel
+	 */
+	public void render(Graphics graphics, Dimension window, BoardPanel boardPanel) {
+		int cellW = window.width / getWidth();
+		int cellH = window.height / getHeight();
+		graphics.setColor(BoardPanel.BACKGROUND_COLOR);
+		graphics.fillRect(0, 0, window.width, window.height);
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				int cellX = x * cellW;
+				int cellY = y * cellH;
+				Square square = squareAt(x, y);
+				boardPanel.render(square, graphics, cellX, cellY, cellW, cellH);
+			}
+		}
+	}
 }
