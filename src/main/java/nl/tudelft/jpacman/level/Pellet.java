@@ -42,4 +42,7 @@ public class Pellet extends Unit {
     public Sprite getSprite() {
         return image;
     }
+    public void collide(Unit collidedOn, PlayerCollisions playerCollisions) {
+		playerCollisions.pelletColliding(this, collidedOn);
+	}
 }
