@@ -85,10 +85,7 @@ public class BoardPanel extends JPanel {
      * @param height
      *            The height of this square (in pixels.)
      */
-    public void render(Square square, Graphics graphics, int x, int y, int width, int height) {
-        square.getSprite().draw(graphics, x, y, width, height);
-        for (Unit unit : square.getOccupants()) {
-            unit.getSprite().draw(graphics, x, y, width, height);
-        }
+   public void render(Square square, Graphics graphics, int x, int y, int width, int height) {
+        square.render(graphics, x, y, width, height);
     }
 }
