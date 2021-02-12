@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
+import nl.tudelft.jpacman.level.PlayerCollisions;
 import nl.tudelft.jpacman.sprite.Sprite;
 
 import java.util.ArrayList;
@@ -100,4 +101,7 @@ public abstract class Ghost extends Unit {
         int i = new Random().nextInt(directions.size());
         return directions.get(i);
     }
+    public void collide(Unit collidedOn, PlayerCollisions playerCollisions) {
+		playerCollisions.ghostColliding(this, collidedOn);
+	}
 }
