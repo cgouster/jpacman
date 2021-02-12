@@ -102,4 +102,9 @@ public class Player extends Unit {
     public void addPoints(int points) {
         score += points;
     }
+    
+	public void collide(Unit collidedOn, PlayerCollisions playerCollisions) {
+		playerCollisions.playerColliding(this, collidedOn);
+	}
+
 }
