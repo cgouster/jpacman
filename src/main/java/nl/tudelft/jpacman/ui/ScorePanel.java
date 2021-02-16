@@ -46,7 +46,7 @@ public class ScorePanel extends JPanel {
      * @param players
      *            The players to display the scores of.
      */
-    public ScorePanel(List<Player> players) {
+    protected ScorePanel(List<Player> players) {
         super();
         assert players != null;
 
