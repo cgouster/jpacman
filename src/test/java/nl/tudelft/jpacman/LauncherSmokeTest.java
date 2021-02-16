@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author Arie van Deursen, March 2014.
  */
-public class LauncherSmokeTest {
+ class LauncherSmokeTest {
 
     private Launcher launcher;
 
