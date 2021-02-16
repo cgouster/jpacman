@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * An example test class that conducts integration tests.
  */
-public class StartupSystemTest {
+ class StartupSystemTest {
 
     private Launcher launcher;
 
@@ -36,7 +36,7 @@ public class StartupSystemTest {
      * game and checks it is indeed in progress.
      */
     @Test
-    public void gameIsRunning() {
+     void gameIsRunning() {
         launcher.launch();
 
         getGame().start();
