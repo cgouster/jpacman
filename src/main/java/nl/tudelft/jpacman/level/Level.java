@@ -90,7 +90,7 @@ public class Level {
      * @param collisionMap
      *            The collection of collisions that should be handled.
      */
-    public Level(Board board, List<Ghost> ghosts, List<Square> startPositions,
+    protected Level(Board board, List<Ghost> ghosts, List<Square> startPositions,
                  CollisionMap collisionMap) {
         assert board != null;
         assert ghosts != null;
@@ -169,7 +169,7 @@ public class Level {
      * @param direction
      *            The direction to move the unit in.
      */
-    public void move(Unit unit, Direction direction) {
+    protected void move(Unit unit, Direction direction) {
         assert unit != null;
         assert direction != null;
         assert unit.hasSquare();
