@@ -215,9 +215,7 @@ public final class Navigation {
          * @return The parent node, or <code>null</code> if this node is a root
          *         node.
          */
-        private Node getParent() {
-            return parent;
-        }
+       
 
         /**
          * Returns the list of values from the root of the tree to this node.
