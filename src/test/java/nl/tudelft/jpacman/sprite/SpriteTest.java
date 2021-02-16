@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * @author Jeroen Roosen 
  */
 @SuppressWarnings("magicnumber")
-public class SpriteTest {
+ class SpriteTest {
 
     private Sprite sprite;
     private SpriteStore store;
@@ -38,7 +38,7 @@ public class SpriteTest {
      * Verifies the width of a static sprite.
      */
     @Test
-    public void spriteWidth() {
+     void spriteWidth() {
         assertThat(sprite.getWidth()).isEqualTo(SPRITE_SIZE);
     }
 
@@ -46,7 +46,7 @@ public class SpriteTest {
      * Verifies the height of a static sprite.
      */
     @Test
-    public void spriteHeight() {
+     void spriteHeight() {
         assertThat(sprite.getHeight()).isEqualTo(SPRITE_SIZE);
     }
 
@@ -58,7 +58,7 @@ public class SpriteTest {
      *             since the sprite cannot be loaded.
      */
     @Test
-    public void resourceMissing() throws IOException {
+     void resourceMissing() throws IOException {
         assertThatThrownBy(() -> store.loadSprite("/sprite/nonexistingresource.png"))
             .isInstanceOf(IOException.class);
     }
@@ -67,7 +67,7 @@ public class SpriteTest {
      * Verifies that an animated sprite is correctly cut from its base image.
      */
     @Test
-    public void animationWidth() {
+     void animationWidth() {
         AnimatedSprite animation = store.createAnimatedSprite(sprite, 4, 0,
             false);
         assertThat(animation.getWidth()).isEqualTo(16);
@@ -77,7 +77,7 @@ public class SpriteTest {
      * Verifies that an animated sprite is correctly cut from its base image.
      */
     @Test
-    public void animationHeight() {
+     void animationHeight() {
         AnimatedSprite animation = store.createAnimatedSprite(sprite, 4, 0,
             false);
         assertThat(animation.getHeight()).isEqualTo(64);
@@ -87,7 +87,7 @@ public class SpriteTest {
      * Verifies that an split sprite is correctly cut from its base image.
      */
     @Test
-    public void splitWidth() {
+     void splitWidth() {
         Sprite split = sprite.split(10, 11, 12, 13);
         assertThat(split.getWidth()).isEqualTo(12);
     }
@@ -96,7 +96,7 @@ public class SpriteTest {
      * Verifies that an split sprite is correctly cut from its base image.
      */
     @Test
-    public void splitHeight() {
+     void splitHeight() {
         Sprite split = sprite.split(10, 11, 12, 13);
         assertThat(split.getHeight()).isEqualTo(13);
     }
@@ -105,7 +105,7 @@ public class SpriteTest {
      * Verifies that a split that isn't within the actual sprite returns an empty sprite.
      */
     @Test
-    public void splitOutOfBounds() {
+     void splitOutOfBounds() {
         Sprite split = sprite.split(10, 10, 64, 10);
         assertThat(split).isInstanceOf(EmptySprite.class);
     }
