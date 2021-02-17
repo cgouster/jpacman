@@ -70,7 +70,7 @@ public abstract class Unit {
      * @param target
      *            The square to occupy.
      */
-    public void occupy(Square target) {
+     void occupy(Square target) {
         assert target != null;
 
         if (square != null) {
