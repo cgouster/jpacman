@@ -76,7 +76,7 @@ public class Board {
      *            The <code>y</code> position (row) of the requested square.
      * @return The square at the given <code>x,y</code> position (never null).
      */
-     Square squareAt(int x, int y) {
+     public Square squareAt(int x, int y) {
         assert withinBorders(x, y);
         Square result = board[x][y];
         assert result != null : "Follows from invariant.";
