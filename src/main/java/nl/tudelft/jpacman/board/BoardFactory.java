@@ -35,7 +35,7 @@ public class BoardFactory {
      *            the square at position x,y.
      * @return A new board, wrapping a grid of connected cells.
      */
-     Board createBoard(Square[][] grid) {
+     public Board createBoard(Square[][] grid) {
         assert grid != null;
 
         Board board = new Board(grid);
