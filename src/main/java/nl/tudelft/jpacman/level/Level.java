@@ -169,7 +169,7 @@ public class Level {
      * @param direction
      *            The direction to move the unit in.
      */
-     void move(Unit unit, Direction direction) {
+     public void move(Unit unit, Direction direction) {
         assert unit != null;
         assert direction != null;
         assert unit.hasSquare();
