@@ -46,7 +46,7 @@ public class ScorePanel extends JPanel {
      * @param players
      *            The players to display the scores of.
      */
-    protected ScorePanel(List<Player> players) {
+     ScorePanel(List<Player> players) {
         super();
         assert players != null;
 
@@ -95,7 +95,7 @@ public class ScorePanel extends JPanel {
      * Let the score panel use a dedicated score formatter.
      * @param scoreFormatter Score formatter to be used.
      */
-    public void setScoreFormatter(ScoreFormatter scoreFormatter) {
+     void setScoreFormatter(ScoreFormatter scoreFormatter) {
         assert scoreFormatter != null;
         this.scoreFormatter = scoreFormatter;
     }
