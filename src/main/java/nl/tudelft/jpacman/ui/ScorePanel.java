@@ -66,17 +66,22 @@ public class ScorePanel extends JPanel {
     /**
      * Refreshes the scores of the players.
      */
-    protected void refresh() {
+protected void refresh() {
         for (Map.Entry<Player, JLabel> entry : scoreLabels.entrySet()) {
-            Player player = entry.getKey();
-            String score = "";
-            if (!player.isAlive()) {
-                score = "You died. ";
-            }
-            score += scoreFormatter.format(player);
-            entry.getValue().setText(score);
+            String score = score(entry);
+			entry.getValue().setText(score);
         }
     }
+
+	private String score(Map.Entry<Player, JLabel> entry) {
+		Player player = entry.getKey();
+		String score = "";
+		if (!player.isAlive()) {
+			score = "You died. ";
+		}
+		score += scoreFormatter.format(player);
+		return score;
+	}
 
     /**
      * Provide means to format the score for a given player.
