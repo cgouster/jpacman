@@ -18,22 +18,15 @@ import java.util.Random;
  * @author Jeroen Roosen
  */
 public abstract class Ghost extends Unit {
+    private GhostProduct ghostProduct;
     /**
      * The sprite map, one sprite for each direction.
      */
     private final Map<Direction, Sprite> sprites;
 
     /**
-     * The base move interval of the ghost.
-     */
-    private final int moveInterval;
-
-    /**
-     * The random variation added to the {@link #moveInterval}.
-     */
-    private final int intervalVariation;
-
-    /**
+    
+     
      * Calculates the next move for this unit and returns the direction to move
      * in.
      * <p>
@@ -61,10 +54,10 @@ public abstract class Ghost extends Unit {
      * @param moveInterval      The base interval of movement.
      * @param intervalVariation The variation of the interval.
      */
-    protected Ghost(Map<Direction, Sprite> spriteMap, int moveInterval, int intervalVariation) {
-        this.sprites = spriteMap;
-        this.intervalVariation = intervalVariation;
-        this.moveInterval = moveInterval;
+   protected Ghost(Map<Direction, Sprite> spriteMap, int moveInterval, int intervalVariation) {
+        this.ghostProduct = new GhostProduct(intervalVariation, moveInterval);
+		this.sprites = spriteMap;
+        
     }
 
     @Override
@@ -77,8 +70,8 @@ public abstract class Ghost extends Unit {
      *
      * @return The suggested delay between moves in milliseconds.
      */
-    public long getInterval() {
-        return this.moveInterval + new Random().nextInt(this.intervalVariation);
+   public long getInterval() {
+        return ghostProduct.getInterval();
     }
 
     /**
