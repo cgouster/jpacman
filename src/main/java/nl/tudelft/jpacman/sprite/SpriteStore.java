@@ -80,7 +80,7 @@ public class SpriteStore {
      *            Whether this sprite is a looping animation or not.
      * @return The animated sprite.
      */
-    protected AnimatedSprite createAnimatedSprite(Sprite baseImage, int frames,
+     AnimatedSprite createAnimatedSprite(Sprite baseImage, int frames,
                                                int delay, boolean loop) {
         assert baseImage != null;
         assert frames > 0;
