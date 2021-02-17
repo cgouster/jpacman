@@ -104,7 +104,7 @@ public class PacManSprites extends SpriteStore {
      *            The colour of the ghost.
      * @return The Sprite for the ghost.
      */
-    protected Map<Direction, Sprite> getGhostSprite(GhostColor color) {
+     Map<Direction, Sprite> getGhostSprite(GhostColor color) {
         assert color != null;
 
         String resource = "/sprite/ghost_" + color.name().toLowerCase()
