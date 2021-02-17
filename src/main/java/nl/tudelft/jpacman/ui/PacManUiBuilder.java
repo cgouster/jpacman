@@ -60,7 +60,7 @@ public class PacManUiBuilder {
      *            The game to build the UI for.
      * @return A new Pac-Man UI with the set keys and buttons.
      */
-     PacManUI build(final Game game) {
+     public PacManUI build(final Game game) {
         assert game != null;
 
         if (defaultButtons) {
@@ -105,7 +105,7 @@ public class PacManUiBuilder {
      *            The action to perform when the key is pressed.
      * @return The builder.
      */
-     PacManUiBuilder addKey(Integer keyCode, Action action) {
+     public PacManUiBuilder addKey(Integer keyCode, Action action) {
         assert keyCode != null;
         assert action != null;
 
